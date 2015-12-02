@@ -27,6 +27,6 @@ public:
 	void LaplacianFilter(Mat image, Mat *dstImage);
 	void SumOfModuleDifferent(Mat image, Mat *dstImage);
 	void ModifiedLaplacian(Mat image, Mat *dstImage);
-	void EnergyOfLaplacianOfImage(Mat image, Mat *)
+	void EnergyOfLaplacianOfImage(Mat image, Mat *);
 
 };
