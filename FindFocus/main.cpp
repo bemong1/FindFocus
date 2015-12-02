@@ -15,7 +15,7 @@ void main()
 	Mat laplacianImage_in_OpenCV;
 	Mat sumOfModuleDifferent;
 
-	VideoCapture cap("C:\\Users\\kwk\\Videos\\Paris tilt shift.mp4");		
+	VideoCapture cap("Paris tilt shift.mp4");		
 
 	for (;;)
 	{
