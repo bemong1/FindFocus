@@ -18,6 +18,7 @@ public:
 
 //OpenCV 제공 필터
 public:
+
 	void Sobel_in_OpenCV(Mat image, Mat *dstImage);
 	void Laplacian_in_OpenCV(Mat image, Mat *dstImage);
 
