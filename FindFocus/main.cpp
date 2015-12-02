@@ -42,6 +42,7 @@ int main()
 		imshow("grayImage", grayImage);
 		imshow("srcImage", image);
 		
+	 	
 
 		//waitKey(0);
 		if (waitKey(1) >= 0)
