@@ -32,7 +32,7 @@ int main()
 
 
 		ShapeFromFocus shapeFromFocus;
-		//shapeFromFocus.LaplacianFilter(grayImage, &laplacianImage_in_OpenCV);
+		shapeFromFocus.Laplacian_in_OpenCV(grayImage, &laplacianImage_in_OpenCV);
 		shapeFromFocus.SumOfModuleDifferent(grayImage, &sumOfModuleDifferent);
 		shapeFromFocus.ModifiedLaplacian(grayImage, &modifiedLaplacian);		
 		shapeFromFocus.EnergyOfLaplacianOfImage(grayImage, &EnergyOfLaplacianOfImage);
@@ -46,19 +46,19 @@ int main()
 		moveWindow("grayImage", 0, 0);
 		moveWindow("srcImage", width, 0);
 
-		//moveWindow("laplacianImage_in_OpenCV", 50, 50+height);
-		moveWindow("sumOfModuleDifferent", 0, height);
-		moveWindow("modifiedLaplacian", width, height);		
-		moveWindow("EnergyOfLaplacianOfImage", width*2, height);
-		moveWindow("GrayLevelVariance", 0, height*2);
-		moveWindow("HistogramEntropy", width, height * 2);
+		moveWindow("laplacianImage_in_OpenCV", 0, height);
+		moveWindow("sumOfModuleDifferent", width, height);
+		moveWindow("modifiedLaplacian", width*2, height);		
+		moveWindow("EnergyOfLaplacianOfImage", 0, height*2);
+		moveWindow("GrayLevelVariance", width, height*2);
+		moveWindow("HistogramEntropy", width*2, height * 2);
 
 		
 
 		imshow("grayImage", grayImage);
 		imshow("srcImage", image);
 
-		//imshow("laplacianImage_in_OpenCV", laplacianImage_in_OpenCV);
+		imshow("laplacianImage_in_OpenCV", laplacianImage_in_OpenCV);
 		imshow("sumOfModuleDifferent", sumOfModuleDifferent);
 		imshow("modifiedLaplacian", modifiedLaplacian);				
 		imshow("EnergyOfLaplacianOfImage", EnergyOfLaplacianOfImage);
