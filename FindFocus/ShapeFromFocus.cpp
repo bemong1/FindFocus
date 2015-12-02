@@ -123,3 +123,98 @@ void ShapeFromFocus::ModifiedLaplacian(Mat image, Mat *dstImage)
 	}
 
 }
+
+void ShapeFromFocus::EnergyOfLaplacianOfImage(Mat image, Mat *dstImage)
+{
+	float ml = 0;
+
+	int threshold = 0;
+
+	(*dstImage).create(image.rows, image.cols, CV_8UC1);
+
+	for (int j = 1; j < image.rows - 1; j++)
+	{
+		for (int i = 1; i < image.cols - 1; i++)
+		{
+			ml = (1/6.) * 
+				abs((((1)*image.data[(j-1)* image.step + (i-1)]) + ((4)*image.data[(j-1)* image.step + (i)]) + ((1)*image.data[(j-1)* image.step + (i+1)])) + 
+				((4) * image.data[(j)* image.step + (i-1)]) + ((-20)*image.data[(j)* image.step + (i)]) + ((4)*image.data[(j)* image.step + (i+1)]) +
+				(((1)*image.data[(j+1)* image.step + (i-1)]) + ((4)*image.data[(j+1)* image.step + (i)]) + ((1)*image.data[(j+1)* image.step + (i+1)])));
+
+			(*dstImage).data[j * image.step + (i)] = (unsigned char)ml;
+		}
+	}
+
+}
+
+void ShapeFromFocus::GrayLevelVariance(Mat image, Mat *dstImage)
+{
+	float ml = 0;
+	int N = image.cols*(image.rows-200);
+	float average = 0;
+	float variance = 0;
+
+	float visualize = 800;
+	
+	int threshold = 0;
+
+	(*dstImage).create(image.rows, image.cols, CV_8UC1);
+
+	for (int j = 100; j < image.rows-100; j++)
+	{
+		for (int i = 0; i < image.cols; i++)
+		{
+			average += image.data[j * image.step + (i)];
+		}
+	}
+	average = average / N;
+
+
+	for (int j = 100; j < image.rows-100; j++)
+	{
+		for (int i = 0; i < image.cols; i++)
+		{
+			ml = abs((image.data[j * image.step + (i)] * image.data[j * image.step + (i)]) - (average * average)) / visualize;
+
+			(*dstImage).data[j * image.step + (i)] = (unsigned char)ml;
+		}
+	}
+}
+
+
+void ShapeFromFocus::HistogramEntropy(Mat image, Mat *dstImage)
+{
+	int ml = 0;
+	float freq[256] = { 0 };
+	float visualize = 20000;
+
+	int threshold = 0;
+
+	(*dstImage).create(image.rows, image.cols, CV_8UC1);
+
+		
+	for (int j = 100; j < image.rows-100; j++)
+	{
+		for (int i = 0; i < image.cols; i++)
+		{
+			ml = 0;
+
+			freq[image.data[j * image.step + (i)]]++;
+			
+			//(*dstImage).data[j * image.step + (i)] = (unsigned char)ml;
+		}
+	}
+
+	//for (int i = 0; i < 255; i++)
+		//freq[i] = freq[i] / ((image.rows - 200) * image.cols);
+
+	for (int j = 100; j < image.rows - 100; j++)
+	{
+		for (int i = 0; i < image.cols; i++)
+		{
+			ml = visualize / (freq[image.data[j * image.step + (i)]] * log2(freq[image.data[j * image.step + (i)]] ));
+
+			(*dstImage).data[j * image.step + (i)] = (unsigned char)ml;
+		}
+	}
+}

@@ -11,6 +11,9 @@ int main()
 	Mat modifiedLaplacian;
 	Mat laplacianImage_in_OpenCV;
 	Mat sumOfModuleDifferent;
+	Mat EnergyOfLaplacianOfImage;
+	Mat GrayLevelVariance;
+	Mat HistogramEntropy;
 
 	VideoCapture cap("Paris tilt shift.mp4");		
 
@@ -29,37 +32,44 @@ int main()
 
 
 		ShapeFromFocus shapeFromFocus;
-		shapeFromFocus.LaplacianFilter(grayImage, &laplacianImage_in_OpenCV);
-		shapeFromFocus.ModifiedLaplacian(grayImage, &modifiedLaplacian);
+		//shapeFromFocus.LaplacianFilter(grayImage, &laplacianImage_in_OpenCV);
 		shapeFromFocus.SumOfModuleDifferent(grayImage, &sumOfModuleDifferent);
-
+		shapeFromFocus.ModifiedLaplacian(grayImage, &modifiedLaplacian);		
+		shapeFromFocus.EnergyOfLaplacianOfImage(grayImage, &EnergyOfLaplacianOfImage);
+		shapeFromFocus.GrayLevelVariance(grayImage, &GrayLevelVariance);
+		shapeFromFocus.HistogramEntropy(grayImage, &HistogramEntropy);
 
 
 		int width = image.cols;
-		int height = image.rows;
+		int height = image.rows-40; 
 
-		moveWindow("grayImage", 50, 50);
-		moveWindow("srcImage", 50+width, 50);
+		moveWindow("grayImage", 0, 0);
+		moveWindow("srcImage", width, 0);
 
-		moveWindow("laplacianImage_in_OpenCV", 50, 50+height);
-		moveWindow("modifiedLaplacian", 50+width, 50+height);
-		moveWindow("sumOfModuleDifferent", 50+(width*2), 50+height);
+		//moveWindow("laplacianImage_in_OpenCV", 50, 50+height);
+		moveWindow("sumOfModuleDifferent", 0, height);
+		moveWindow("modifiedLaplacian", width, height);		
+		moveWindow("EnergyOfLaplacianOfImage", width*2, height);
+		moveWindow("GrayLevelVariance", 0, height*2);
+		moveWindow("HistogramEntropy", width, height * 2);
 
 		
 
 		imshow("grayImage", grayImage);
 		imshow("srcImage", image);
 
-
-		imshow("modifiedLaplacian", modifiedLaplacian);
-		imshow("laplacianImage_in_OpenCV", laplacianImage_in_OpenCV);
+		//imshow("laplacianImage_in_OpenCV", laplacianImage_in_OpenCV);
 		imshow("sumOfModuleDifferent", sumOfModuleDifferent);
+		imshow("modifiedLaplacian", modifiedLaplacian);				
+		imshow("EnergyOfLaplacianOfImage", EnergyOfLaplacianOfImage);
+		imshow("GrayLevelVariance", GrayLevelVariance);
+		imshow("HistogramEntropy", HistogramEntropy);
 
 		
 		
 
 		//waitKey(0);
-		if (waitKey(1) >= 0)
+		if (waitKey(30) >= 0)
 			break;;
 	}
 
