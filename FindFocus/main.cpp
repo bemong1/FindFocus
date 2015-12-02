@@ -42,8 +42,6 @@ int main()
 		imshow("grayImage", grayImage);
 		imshow("srcImage", image);
 		
-	 	std::cout << "test" <<std::endl;
-
 		//waitKey(0);
 		if (waitKey(1) >= 0)
 			break;;
