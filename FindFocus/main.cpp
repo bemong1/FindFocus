@@ -2,11 +2,8 @@
 #include "FindFocus.h"
 #include "ShapeFromFocus.h"
 
-
-
-
 //video
-void main()
+int main()
 {
 	Mat image;
 	Mat grayImage;
@@ -47,9 +44,11 @@ void main()
 		
 
 		//waitKey(0);
-		if (waitKey(30) >= 0)
+		if (waitKey(1) >= 0)
 			break;;
 	}
+
+	return 0;
 
 }
 

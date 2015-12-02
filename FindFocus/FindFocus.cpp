@@ -1,6 +1,6 @@
 #include "FindFocus.h"
 
-#include "GrayLevelCoOccurrenceMatrix.h"
+#include "GrayLevelCooccurrenceMatrix.h"
 
 
 FindFocus::FindFocus(Mat image, int _angle, int _haralick)

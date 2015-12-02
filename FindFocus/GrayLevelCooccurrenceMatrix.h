@@ -1,7 +1,7 @@
 #include <iostream>
 #include <bitset>
 
-#include <opencv2\opencv.hpp>
+#include <opencv2/opencv.hpp>
 
 
 using namespace cv;
@@ -70,6 +70,6 @@ public:
 	std::bitset<10> bitHaralick;
 
 	//GLCM사이즈 = 픽셀크기 (0~255)
-	const int glcmSize = 256;
+	int glcmSize;
 
 };
