@@ -30,7 +30,7 @@ int main()
 		// float test =  grayLevelCoOccurrenceMatrix.CoOccurrence(grayImage, 1);
 		// std::cout << test << std::endl;
 
-
+		//
 		ShapeFromFocus shapeFromFocus;
 		shapeFromFocus.Laplacian_in_OpenCV(grayImage, &laplacianImage_in_OpenCV);
 		shapeFromFocus.SumOfModuleDifferent(grayImage, &sumOfModuleDifferent);
