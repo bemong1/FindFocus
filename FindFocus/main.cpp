@@ -23,11 +23,9 @@ int main()
 		//FindFocus findFocus	(grayImage, GLCM_ANGLE_ALL, HARALICK_ASM);
 		//findFocus.Sequential(grayImage, image, 1);
 
-			
-
-		//GrayLevelCoOccurrenceMatrix grayLevelCoOccurrenceMatrix	(GLCM_ANGLE_ALL, HARALICK_CORRELATION);
-		//float test =  grayLevelCoOccurrenceMatrix.CoOccurrence(grayImage, 1);
-		//std::cout << test << std::endl;
+		// GrayLevelCoOccurrenceMatrix grayLevelCoOccurrenceMatrix	(GLCM_ANGLE_ALL, HARALICK_CORRELATION);
+		// float test =  grayLevelCoOccurrenceMatrix.CoOccurrence(grayImage, 1);
+		// std::cout << test << std::endl;
 
 
 		ShapeFromFocus shapeFromFocus;
@@ -35,13 +33,31 @@ int main()
 		shapeFromFocus.ModifiedLaplacian(grayImage, &modifiedLaplacian);
 		shapeFromFocus.SumOfModuleDifferent(grayImage, &sumOfModuleDifferent);
 
+
+
+		int width = image.cols;
+		int height = image.rows;
+
+		moveWindow("grayImage", 50, 50);
+		moveWindow("srcImage", 50+width, 50);
+
+		moveWindow("laplacianImage_in_OpenCV", 50, 50+height);
+		moveWindow("modifiedLaplacian", 50+width, 50+height);
+		moveWindow("sumOfModuleDifferent", 50+(width*2), 50+height);
+
+		
+
+		imshow("grayImage", grayImage);
+		imshow("srcImage", image);
+
+
 		imshow("modifiedLaplacian", modifiedLaplacian);
 		imshow("laplacianImage_in_OpenCV", laplacianImage_in_OpenCV);
 		imshow("sumOfModuleDifferent", sumOfModuleDifferent);
 
-		imshow("grayImage", grayImage);
-		imshow("srcImage", image);
 		
+		
+
 		//waitKey(0);
 		if (waitKey(1) >= 0)
 			break;;
