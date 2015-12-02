@@ -150,7 +150,7 @@ void ShapeFromFocus::EnergyOfLaplacianOfImage(Mat image, Mat *dstImage)
 void ShapeFromFocus::GrayLevelVariance(Mat image, Mat *dstImage)
 {
 	float ml = 0;
-	int N = image.cols*(image.rows-200);
+	int N = image.cols*(image.rows-160);
 	float average = 0;
 	float variance = 0;
 
@@ -160,7 +160,7 @@ void ShapeFromFocus::GrayLevelVariance(Mat image, Mat *dstImage)
 
 	(*dstImage).create(image.rows, image.cols, CV_8UC1);
 
-	for (int j = 100; j < image.rows-100; j++)
+	for (int j = 80; j < image.rows-80; j++)
 	{
 		for (int i = 0; i < image.cols; i++)
 		{
@@ -170,7 +170,7 @@ void ShapeFromFocus::GrayLevelVariance(Mat image, Mat *dstImage)
 	average = average / N;
 
 
-	for (int j = 100; j < image.rows-100; j++)
+	for (int j = 80; j < image.rows-80; j++)
 	{
 		for (int i = 0; i < image.cols; i++)
 		{
@@ -193,7 +193,7 @@ void ShapeFromFocus::HistogramEntropy(Mat image, Mat *dstImage)
 	(*dstImage).create(image.rows, image.cols, CV_8UC1);
 
 		
-	for (int j = 100; j < image.rows-100; j++)
+	for (int j = 80; j < image.rows-80; j++)
 	{
 		for (int i = 0; i < image.cols; i++)
 		{
@@ -208,7 +208,7 @@ void ShapeFromFocus::HistogramEntropy(Mat image, Mat *dstImage)
 	//for (int i = 0; i < 255; i++)
 		//freq[i] = freq[i] / ((image.rows - 200) * image.cols);
 
-	for (int j = 100; j < image.rows - 100; j++)
+	for (int j = 80; j < image.rows - 80; j++)
 	{
 		for (int i = 0; i < image.cols; i++)
 		{
