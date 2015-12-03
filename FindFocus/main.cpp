@@ -41,17 +41,17 @@ int main()
 
 
 		int width = image.cols;
-		int height = image.rows-40; 
+		int height = image.rows-20; 
 
-		moveWindow("grayImage", 0, 0);
-		moveWindow("srcImage", width, 0);
+		moveWindow("grayImage", 200, 0);
+		moveWindow("srcImage", 200+width, 0);
 
-		moveWindow("laplacianImage_in_OpenCV", 0, height);
-		moveWindow("sumOfModuleDifferent", width, height);
-		moveWindow("modifiedLaplacian", width*2, height);		
-		moveWindow("EnergyOfLaplacianOfImage", 0, height*2);
-		moveWindow("GrayLevelVariance", width, height*2);
-		moveWindow("HistogramEntropy", width*2, height * 2);
+		moveWindow("laplacianImage_in_OpenCV", 200, height);
+		moveWindow("sumOfModuleDifferent", 200+width*1, height);
+		moveWindow("modifiedLaplacian", 200+width*2, height);		
+		moveWindow("EnergyOfLaplacianOfImage", 200, height*2);
+		moveWindow("GrayLevelVariance", 200+width*1, height*2);
+		moveWindow("HistogramEntropy", 200+width*2, height * 2);
 
 		
 
