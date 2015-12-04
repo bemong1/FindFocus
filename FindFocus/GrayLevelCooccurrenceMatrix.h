@@ -70,6 +70,6 @@ public:
 	std::bitset<10> bitHaralick;
 
 	//GLCM사이즈 = 픽셀크기 (0~255)
-	int glcmSize;
+	const int glcmSize=256;
 
 };

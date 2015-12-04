@@ -9,7 +9,6 @@ GrayLevelCoOccurrenceMatrix::GrayLevelCoOccurrenceMatrix ()
 	bitAngle		= flagAngle;
 	bitHaralick		= flagHaralick;
 
-	glcmSize = 256;
 }
 
 GrayLevelCoOccurrenceMatrix::GrayLevelCoOccurrenceMatrix ( int _angle, int _haralick )
@@ -19,7 +18,6 @@ GrayLevelCoOccurrenceMatrix::GrayLevelCoOccurrenceMatrix ( int _angle, int _hara
 
 	bitAngle		= flagAngle;
 	bitHaralick		= flagHaralick;
-	glcmSize = 256;
 }
 
 
